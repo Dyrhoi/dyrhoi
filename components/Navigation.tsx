@@ -2,6 +2,7 @@
 
 import { Icons } from "@/components/Icons";
 import { IconLink, NavLink } from "@/components/Link";
+import ThemeToggle from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
 import debounce from "lodash.debounce";
 import Link from "next/link";
@@ -20,7 +21,7 @@ export default function Navigation() {
   return (
     <nav
       className={cn(
-        "inset-0 transition-colors sticky h-14 border-b border-b-transparent bg-background/95 backdrop-blur-xl",
+        "inset-0 transition-colors sticky h-14 border-b border-b-transparent bg-background/95 backdrop-blur-xl z-50",
         {
           "border-b-border": scrolled,
         }
@@ -38,7 +39,7 @@ export default function Navigation() {
             </li>
           </ul>
         </div>
-        <ul>
+        <ul className="flex items-center">
           <li>
             <IconLink
               href="https://github.com/dyrhoi"
@@ -46,6 +47,9 @@ export default function Navigation() {
               target="_blank"
               icon={"github"}
             />
+          </li>
+          <li>
+            <ThemeToggle />
           </li>
         </ul>
       </div>

@@ -1,5 +1,6 @@
 "use client";
 import { Icons, LucideIconProps } from "@/components/Icons";
+import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
@@ -45,13 +46,9 @@ function IconLink({
 }: IconLinkProps) {
   return (
     <Link href={href} {...props} className={cn("", className)}>
-      <Icons.LucideIcon
-        className={cn(
-          "transition-colors bg-background hover:bg-foreground/10 h-9 w-9 p-1.5 rounded",
-          iconClassName
-        )}
-        name={icon}
-      />
+      <Button variant="ghost" className="h-9 w-9 p-1.5">
+        <Icons.LucideIcon className={cn("", iconClassName)} name={icon} />
+      </Button>
     </Link>
   );
 }

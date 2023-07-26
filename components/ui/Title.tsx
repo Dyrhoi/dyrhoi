@@ -27,17 +27,11 @@ export interface TitleProps
 const Title = React.forwardRef<HTMLHeadingElement, TitleProps>(
   ({ className, tag, asChild = false, children, ...props }, ref) => {
     // Not sure what to do here...
-    const Tag = tag as any;
+    const Tag = (tag as any) || "h2";
     return (
-      <Tag
-        {...props}
-        ref={ref}
-        className={cn(titleVariants({ tag, className }))}
-      >
+      <Tag {...props} ref={ref} className={cn(titleVariants({ tag, className }))}>
         {children}
       </Tag>
-      // className={cn(titleVariants({ tag, className }))}
-      // {...props}
     );
   }
 );
