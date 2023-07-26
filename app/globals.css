@@ -40,7 +40,8 @@
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
 
-    --muted: 240 3.7% 15.9%;
+    /*--muted: 240 3.7% 15.9%;*/
+    --muted: 240 10% 7%;
     --muted-foreground: 240 5% 64.9%;
 
     --popover: 240 10% 3.9%;
@@ -72,10 +73,19 @@
   * {
     @apply border-border;
   }
+  html {
+    @apply text-[16px] md:text-[18px];
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
   }
   .twemoji {
     @apply inline-block w-auto h-[1em] align-[-0.125em];
+  }
+}
+
+@layer utilities {
+  .position-center {
+    @apply absolute inset-1/2 -translate-y-1/2 -translate-x-1/2;
   }
 }

@@ -3,7 +3,9 @@
 import { Icons } from "@/components/Icons";
 import { IconLink, NavLink } from "@/components/Link";
 import ThemeToggle from "@/components/ThemeToggle";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/Tooltip";
 import { cn } from "@/lib/utils";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
 import debounce from "lodash.debounce";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -39,19 +41,28 @@ export default function Navigation() {
             </li>
           </ul>
         </div>
-        <ul className="flex items-center">
-          <li>
-            <IconLink
-              href="https://github.com/dyrhoi"
-              rel="noopener noreferrer"
-              target="_blank"
-              icon={"github"}
-            />
-          </li>
-          <li>
-            <ThemeToggle />
-          </li>
-        </ul>
+        <TooltipProvider>
+          <ul className="flex items-center">
+            <li>
+              <Tooltip>
+                <TooltipTrigger>
+                  <IconLink
+                    href="https://github.com/dyrhoi"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    icon={"github"}
+                  />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Github</p>
+                </TooltipContent>
+              </Tooltip>
+            </li>
+            <li>
+              <ThemeToggle />
+            </li>
+          </ul>
+        </TooltipProvider>
       </div>
     </nav>
   );

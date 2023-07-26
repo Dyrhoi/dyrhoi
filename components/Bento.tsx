@@ -6,24 +6,28 @@ interface GridWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 function BentoGridWrapper({ children, className }: GridWrapperProps) {
   return (
-    <div className={cn("grid auto-rows-[12rem] grid-cols-2 gap-10", className)}>
+    <div className={cn("grid relative auto-rows-[12rem] grid-cols-2 gap-10", className)}>
       {children}
     </div>
   );
 }
 
-interface GridItemProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface GridItemProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   span: {
     col: number;
     row: number;
   };
+  direction?: "horizontal" | "vertical";
 }
-function BentoGridItem({ children, span, className }: GridItemProps) {
+function BentoGridItem({ children, span, className, direction: _direction }: GridItemProps) {
+  const direction = _direction ?? "horizontal";
   return (
     <div
       className={cn(
-        "bg-muted/20 border-border border rounded-lg p-12 overflow-hidden relative flex flex-col gap-4 justify-end",
+        { "flex-col justify-end gap-4": direction === "vertical" },
+        { "flex-row justify-between items-center": direction === "horizontal" },
+        "dark:bg-muted/80 bg-muted/60 backdrop-blur-3xl border-border border rounded-lg p-12 overflow-hidden relative flex",
         className
       )}
       style={{ gridColumn: `span ${span.col}`, gridRow: `span ${span.row}` }}
@@ -54,4 +58,11 @@ function BentoGridItemIcon({ name, className, iconClassName }: GridItemIcon) {
   );
 }
 
-export { BentoGridWrapper, BentoGridItem, BentoGridItemIcon };
+interface GridItemContentProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
+}
+function BentoGridItemContent({ children, className }: GridItemContentProps) {
+  return <div className={cn("flex flex-col gap-2 justify-center", className)}>{children}</div>;
+}
+
+export { BentoGridWrapper, BentoGridItem, BentoGridItemContent, BentoGridItemIcon };
