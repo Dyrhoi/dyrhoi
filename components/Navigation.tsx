@@ -1,7 +1,7 @@
 "use client";
 
 import { Icons } from "@/components/Icons";
-import { IconLink, NavLink } from "@/components/Link";
+import { IconLink } from "@/components/Link";
 import ThemeToggle from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
 import debounce from "lodash.debounce";
@@ -33,11 +33,11 @@ export default function Navigation() {
             <Icons.logo className="h-6 w-6" />
             <span className="font-semibold text-lg">Dyrhoi</span>
           </Link>
-          <ul>
+          {/* <ul>
             <li>
               <NavLink href="/posts">Blog</NavLink>
             </li>
-          </ul>
+          </ul> */}
         </div>
         <ul className="flex items-center">
           <li>
