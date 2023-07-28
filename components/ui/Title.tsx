@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 const titleVariants = cva("", {
   variants: {
     tag: {
-      h1: "text-3xl font-bold",
-      h2: "text-2xl font-bold",
+      h1: "text-5xl font-bold",
+      h2: "text-3xl font-bold",
       h3: "text-xl font-bold",
       h4: "text-lg font-bold",
       h5: "text-base font-bold",

@@ -16,7 +16,10 @@ function GridWrapper({ children, className }: GridWrapperProps) {
   return (
     <div className="relative" ref={inViewRef}>
       <div
-        className={cn("grid [&>*]:p-12 items-center relative", className)}
+        className={cn(
+          "grid [&>*]:p-12 items-center relative justify-items-stretch",
+          className
+        )}
         style={{
           gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
         }}

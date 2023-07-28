@@ -12,9 +12,13 @@ import { useEffect, useState } from "react";
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
-    window.onscroll = debounce(() => {
-      setScrolled(window.scrollY > 0);
-    }, 50);
+    window.onscroll = debounce(
+      () => {
+        setScrolled(window.scrollY > 0);
+      },
+      100,
+      { leading: true }
+    );
     return () => {
       window.onscroll = null;
     };
