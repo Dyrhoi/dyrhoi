@@ -8,7 +8,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
+} from "@/components/ui/Sheet";
 import { AlignRight, ScrollText } from "lucide-react";
 
 export default function MobileNavigation({ className }: React.HTMLAttributes<HTMLDivElement>) {
@@ -31,7 +31,7 @@ export default function MobileNavigation({ className }: React.HTMLAttributes<HTM
                 </span>
               </SheetTitle>
               <SheetDescription className="text-2xl py-8">
-                <ul className="[&>li]:border-b [&>li]:border-b-border [&>li>a]:flex [&>li>a]:justify-center [&>li]:w-full flex flex-col items-center gap-8">
+                <ul className="[&>li]:border-b [&>li]:pb-2 [&>li:last-of-type]:border-b-0 [&>li]:border-b-border [&>li>a]:flex [&>li>a]:justify-center [&>li]:w-full flex flex-col items-center gap-4">
                   <li>
                     <NavLink className="flex gap-2 items-center" href="/">
                       <Icons.logo className="h-[1.2em] w-[1.2em]" />

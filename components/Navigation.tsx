@@ -13,7 +13,7 @@ export default function Navigation({ className }: React.HTMLAttributes<HTMLDivEl
         </Link>
         <ul>
           <li>
-            <NavLink href="/posts">Blog</NavLink>
+            <NavLink href="/blog">Blog</NavLink>
           </li>
         </ul>
       </div>

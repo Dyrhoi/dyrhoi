@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 
 export default function PageLayout({ children }: { children: React.ReactNode }) {
@@ -6,6 +7,7 @@ export default function PageLayout({ children }: { children: React.ReactNode }) 
     <>
       <SiteHeader />
       {children}
+      <SiteFooter />
     </>
   );
 }

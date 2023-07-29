@@ -1,10 +1,10 @@
 import {
-  BentoGrid,
   CompanyCollaborations,
   Header,
   Preface,
   WhoIAm,
-} from "@/app/(pages)/components";
+} from "@/app/(pages)/(home)/components";
+import SiteFooter from "@/components/SiteFooter";
 
 export default function Home() {
   return (
@@ -13,7 +13,6 @@ export default function Home() {
       <CompanyCollaborations />
       <Preface />
       <WhoIAm />
-      <BentoGrid />
     </main>
   );
 }

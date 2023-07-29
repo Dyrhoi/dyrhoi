@@ -17,20 +17,17 @@ function GridWrapper({ children, className }: GridWrapperProps) {
     <div className="relative" ref={inViewRef}>
       <div
         className={cn(
-          "grid [&>*]:p-12 items-center relative justify-items-stretch",
+          `grid [&>*]:p-12 items-center relative justify-items-stretch grid-cols-1 md:grid-cols-${columns}`,
           className
         )}
-        style={{
-          gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
-        }}
       >
         {children}
       </div>
-      <div className="absolute flex justify-between h-full w-full inset-0 pointer-events-none">
+      <div className="absolute flex md:justify-between h-full w-full inset-0 pointer-events-none">
         {[...Array(columns + 1).keys()].map((_, i) => (
           <div
             key={i}
-            className="w-[1px] h-full from-foreground/10 to-foreground/0 even:bg-gradient-to-b odd:bg-gradient-to-t relative group"
+            className="w-[1px] absolute left-0 h-full from-foreground/10 to-foreground/0 even:bg-gradient-to-b odd:bg-gradient-to-t md:relative group"
           >
             <motion.div
               // Could I use motions viewport observer here?

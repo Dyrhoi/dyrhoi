@@ -6,7 +6,7 @@ import { InView, IntersectionOptions, useInView } from "react-intersection-obser
 
 export interface FadeInProps {
   children: React.ReactNode;
-  direction?: "left" | "right" | "up" | "down";
+  direction?: "left" | "right" | "up" | "down" | "none";
   intersectOptions?: IntersectionOptions;
 }
 
@@ -16,8 +16,8 @@ export function FadeIn({
   intersectOptions: _intersectOptions,
 }: FadeInProps) {
   const direction = _direction ?? "up";
-  const y = direction === "up" ? 40 : direction === "down" ? -40 : 0;
-  const x = direction === "left" ? 40 : direction === "right" ? -40 : 0;
+  const y = direction === "up" ? 20 : direction === "down" ? -20 : 0;
+  const x = direction === "left" ? 20 : direction === "right" ? -20 : 0;
 
   const intersectOptions: FadeInProps["intersectOptions"] = Object.assign(
     _intersectOptions ?? {},

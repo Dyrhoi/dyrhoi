@@ -46,7 +46,7 @@ function IconLink({
 }: IconLinkProps) {
   return (
     <Link href={href} {...props} className={cn("", className)}>
-      <Button variant="ghost" asChild className="h-9 w-9 p-1.5">
+      <Button variant="ghost" size={"icon"} asChild className="h-9 w-9 p-1.5">
         <Icons.LucideIcon className={cn("", iconClassName)} name={icon} />
       </Button>
     </Link>

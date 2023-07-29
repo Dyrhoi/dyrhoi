@@ -11,7 +11,10 @@ export default function BlurBall({ size: { width, height }, className }: BlurBal
   return (
     <div
       style={{ width, height }}
-      className={cn("position-center blur-3xl rounded-full", className)}
+      className={cn(
+        "position-center blur-xl rounded-full select-none pointer-events-none",
+        className
+      )}
     />
   );
 }

@@ -1,6 +1,10 @@
-/** @type {import('tailwindcss').Config} */
+import { type Config } from "tailwindcss";
+const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette");
+const svgToDataUri = require("mini-svg-data-uri");
+
 module.exports = {
   darkMode: ["class"],
+  safelist: [{ pattern: /grid-cols-(1|2|3|4|5|6)/, variants: ["md"] }],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -58,12 +62,12 @@ module.exports = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: 0 },
+          from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
+          to: { height: "0" },
         },
       },
       animation: {
@@ -73,5 +77,20 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
-};
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
+    function ({ matchUtilities, theme }: { matchUtilities: any; theme: any }) {
+      matchUtilities(
+        {
+          "bg-grid": (value: string) => ({
+            backgroundImage: `url("${svgToDataUri(
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+            )}")`,
+          }),
+        },
+        { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
+      );
+    },
+  ],
+} satisfies Config;
