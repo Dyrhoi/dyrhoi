@@ -35,7 +35,7 @@ function GridWrapper({ children, className }: GridWrapperProps) {
             <motion.div
               // Could I use motions viewport observer here?
               // Probably... but setting the root is very buggy for some reason...
-              animate={{ y: inView ? 0 : i % 2 == 0 ? 40 : -40 }}
+              animate={{ y: inView ? 0 : i % 2 == 0 ? 40 : -40, opacity: inView ? 1 : 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="absolute group-odd:top-1/4 group-even:bottom-1/4 h-8 w-[1px] bg-foreground/40"
             />

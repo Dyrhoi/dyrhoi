@@ -65,4 +65,4 @@ function BentoGridItemContent({ children, className }: GridItemContentProps) {
   return <div className={cn("flex flex-col gap-2 justify-center", className)}>{children}</div>;
 }
 
-export { BentoGridWrapper, BentoGridItem, BentoGridItemContent, BentoGridItemIcon };
+export { BentoGridItem, BentoGridItemContent, BentoGridItemIcon, BentoGridWrapper };

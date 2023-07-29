@@ -1,73 +1,22 @@
 "use client";
 
 import { Icons } from "@/components/Icons";
-import { IconLink, NavLink } from "@/components/Link";
-import ThemeToggle from "@/components/ThemeToggle";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/Tooltip";
-import { cn } from "@/lib/utils";
-import { TooltipProvider } from "@radix-ui/react-tooltip";
-import debounce from "lodash.debounce";
+import { NavLink } from "@/components/Link";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-export default function Navigation() {
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    window.onscroll = debounce(
-      () => {
-        setScrolled(window.scrollY > 0);
-      },
-      100,
-      { leading: true }
-    );
-    return () => {
-      window.onscroll = null;
-    };
-  }, []);
-
+export default function Navigation({ className }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <nav
-      className={cn(
-        "inset-0 transition-colors sticky h-14 border-b border-b-transparent bg-background/95 backdrop-blur-xl z-50",
-        {
-          "border-b-border": scrolled,
-        }
-      )}
-    >
-      <div className="container h-full flex items-center justify-between">
-        <div className="flex items-center gap-8">
-          <Link className="flex gap-2" href="/">
-            <Icons.logo className="h-6 w-6" />
-            <span className="font-semibold text-lg">Dyrhoi</span>
-          </Link>
-          <ul>
-            <li>
-              <NavLink href="/posts">Blog</NavLink>
-            </li>
-          </ul>
-        </div>
-        <TooltipProvider>
-          <ul className="flex items-center">
-            <li>
-              <Tooltip>
-                <TooltipTrigger>
-                  <IconLink
-                    href="https://github.com/dyrhoi"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    icon={"github"}
-                  />
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Github</p>
-                </TooltipContent>
-              </Tooltip>
-            </li>
-            <li>
-              <ThemeToggle />
-            </li>
-          </ul>
-        </TooltipProvider>
+    <div className={className}>
+      <div className="flex items-center gap-8">
+        <Link className="flex gap-2 items-center" aria-label="Home" href="/">
+          <Icons.logo className="h-6 w-6" />
+          <span className="font-semibold text-lg">Dyrhoi</span>
+        </Link>
+        <ul>
+          <li>
+            <NavLink href="/posts">Blog</NavLink>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
   );
 }
