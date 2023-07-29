@@ -13,7 +13,9 @@ export default function Navigation({ className }: React.HTMLAttributes<HTMLDivEl
         </Link>
         <ul>
           <li>
-            <NavLink href="/blog">Blog</NavLink>
+            <NavLink href="/blog" exact={false}>
+              Blog
+            </NavLink>
           </li>
         </ul>
       </div>
