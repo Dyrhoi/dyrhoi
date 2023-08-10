@@ -1,9 +1,8 @@
 import fs from "fs";
-import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
+import path from "path";
 import { JSXElementConstructor, ReactElement } from "react";
-import { ZodError, z } from "zod";
-import React from "react";
+import { z } from "zod";
 
 const rootDirectory = path.join(process.cwd(), "content");
 

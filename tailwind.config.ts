@@ -2,7 +2,7 @@ import { type Config } from "tailwindcss";
 const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette");
 const svgToDataUri = require("mini-svg-data-uri");
 
-module.exports = {
+const config = {
   darkMode: ["class"],
   safelist: [{ pattern: /grid-cols-(1|2|3|4|5|6)/, variants: ["md"] }],
   content: [
@@ -94,3 +94,7 @@ module.exports = {
     },
   ],
 } satisfies Config;
+
+module.exports = config;
+
+export default config;

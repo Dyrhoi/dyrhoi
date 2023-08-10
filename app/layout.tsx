@@ -2,6 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 
 const poppins = Poppins({ weight: ["400", "600", "700"], subsets: ["latin"] });
 
@@ -19,7 +21,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.className} selection:bg-indigo-700 selection:text-white`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <SiteHeader />
           {children}
+          <SiteFooter />
         </ThemeProvider>
       </body>
     </html>

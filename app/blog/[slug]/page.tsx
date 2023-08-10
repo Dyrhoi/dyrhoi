@@ -59,6 +59,7 @@ export default async function BlogEntry({ params: { slug } }: Props) {
           width={950}
           alt={meta.title || "Banner image"}
           className="rounded-xl"
+          quality={100}
         />
       </div>
       <article className="prose prose-img:rounded-xl prose-zinc dark:prose-invert mx-auto">

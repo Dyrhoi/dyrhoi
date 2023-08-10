@@ -1,25 +1,25 @@
 import { GridWrapper } from "@/components/Grid";
 import { Title } from "@/components/ui/Title";
 import { cn } from "@/lib/utils";
-import { Layout, Microscope, Sparkles } from "lucide-react";
+import { Gamepad, Puzzle, Sparkles } from "lucide-react";
 
 export default function Preface() {
   const prefaceGridItems = [
     {
-      icon: <Layout />,
-      title: "Front-end Enthusiast.",
-      description: "Bringing visions to life on the canvas.",
-    },
-    {
-      icon: <Microscope />,
-      title: "Embracing Static Typing.",
-      description: "Static type languages are my go-to for getting things done efficiently.",
+      icon: <Puzzle />,
+      title: "Problem Solver.",
+      description: "I thrive on solving challenges with innovative solutions.",
     },
     {
       icon: <Sparkles />,
-      title: "Passionate Hobbyist.",
+      title: "Perfectionist.",
+      description: "Pursuing quality, holding myself to the highest standards.",
+    },
+    {
+      icon: <Gamepad />,
+      title: "Gamer.",
       description:
-        "Viewing work as a joyful hobby, I bring passion to each project, making it an exciting creative journey.",
+        "Gaming sparked my interest in problem-solving and programming, driving me to explore creative solutions.",
     },
   ] as const;
   return (
