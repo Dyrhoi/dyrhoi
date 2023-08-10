@@ -50,7 +50,7 @@ export default function CompanyCollaborations() {
         </Title>
         <div className="brightness-0 dark:invert filter flex items-center flex-wrap gap-12">
           {companies.map((company) => (
-            <HoverCard key={company.name}>
+            <HoverCard key={company.name} openDelay={200} closeDelay={200}>
               <HoverCardTrigger className="py-4">
                 <company.icon className="h-12 w-auto hover:opacity-100 opacity-80 transition-opacity" />
               </HoverCardTrigger>

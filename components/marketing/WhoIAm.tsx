@@ -1,4 +1,5 @@
 import { FadeIn } from "@/components/Animation";
+import Twemoji from "@/components/Twemoji";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
 import { Badge } from "@/components/ui/Badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
@@ -10,16 +11,16 @@ export default function WhoIAm() {
   return (
     <section className="py-48">
       <div className="container">
-        <div className="flex flex-col lg:flex-row gap-24 items-center">
-          <div className="space-y-4">
+        <div className="flex flex-col lg:flex-row gap-24 items-center justify-between">
+          <div className="space-y-4 text-center lg:text-left">
             <Title tag="h2" className="max-w-md">
-              Your average software engineer.
+              So who am I?
             </Title>
             <p className="text-muted-foreground text-lg">
-              Well... that sounds a bit boring. But it&apos;s mostly true.{" "}
+              Just another software engineer..? Yes.
             </p>
           </div>
-          <div className="flex-1">
+          <div className="flex-1 max-w-2xl">
             <FadeIn>
               <Card>
                 <CardHeader>
@@ -40,8 +41,14 @@ export default function WhoIAm() {
                 <CardContent>
                   <p className="text-muted-foreground">
                     I&apos;m a {dayjs().diff(dayjs("1998-05-17"), "years")}-year-old{" "}
-                    <Highlight>software engineer</Highlight> from Denmark, driven by a{" "}
-                    <Highlight>passion for problem-solving</Highlight>.
+                    <Highlight>software engineer</Highlight> from Denmark.
+                    <br />
+                    <br />I have a passion for <Highlight>front-end engineering</Highlight>. I{" "}
+                    <Twemoji emoji="❤️" /> <Highlight>static typed languages</Highlight>,
+                    especially <Highlight>TypeScript</Highlight>.
+                    <br />
+                    I have many front-end frameworks on my horizon, but I mainly work with
+                    React.
                     <br /> <br />
                     In my day-to-day, I help{" "}
                     <Highlight>building, maintaining, and consulting</Highlight> for a wide
