@@ -3,6 +3,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
 import { getBlogImage, getPostBySlug } from "@/lib/mdx";
 import dayjs from "dayjs";
 import Image from "next/image";
+import { notFound } from "next/navigation";
+import { error } from "console";
 
 const getPageContent = async (slug: string) => {
   const { meta, content } = await getPostBySlug(slug);
@@ -16,20 +18,15 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props) {
-  // I feel like this should be caught by the error boundary... but what do I know?
-  const { meta } = await getPageContent(params.slug)
-    .catch(() => ({
-      meta: {
-        title: "Not found",
-      },
-    }))
-    .then((x) => x);
-  return { title: `${meta.title} - Dyrhoi Blog` };
+  try {
+    const { meta } = await getPageContent(params.slug);
+    return { title: `${meta.title} - Dyrhoi Blog` };
+  } catch (e) {
+    return;
+  }
 }
 
 export default async function BlogEntry({ params: { slug } }: Props) {
-  // Throws error if failing to parse content.
-  // Catched by boundary.
   const { content, meta } = await getPostBySlug(slug);
   return (
     <div className="py-12 space-y-8">
