@@ -1,3 +1,5 @@
+"use client";
+
 import { Icons } from "@/components/Icons";
 import { NavLink } from "@/components/Link";
 import { Button } from "@/components/ui/Button";
@@ -10,12 +12,19 @@ import {
   SheetTrigger,
 } from "@/components/ui/Sheet";
 import { AlignRight, ScrollText } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function MobileNavigation({ className }: React.HTMLAttributes<HTMLDivElement>) {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
   return (
     <div className={className}>
       <div className="flex items-center gap-2">
-        <Sheet>
+        <Sheet open={open} onOpenChange={(open) => setOpen(open)}>
           <SheetTrigger asChild>
             <Button variant={"ghost"} className="p-2">
               <AlignRight />
