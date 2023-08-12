@@ -40,7 +40,7 @@ export default async function GitFeed({ username }: { username: string }) {
       type: event.type,
     }));
   return (
-    <ul className="space-y-4">
+    <ul className="flex md:flex-col gap-4">
       {gitEvents.map((event) => (
         <Fragment key={event.id}>
           <li className="flex">
@@ -56,10 +56,10 @@ export default async function GitFeed({ username }: { username: string }) {
                       {event.repo.name.split("/")?.at(-1)?.slice(0, 2) || "UNK"}
                     </AvatarFallback>
                   </Avatar>
-                  {event.repo.name}
+                  <span className="text-nowrap">{event.repo.name}</span>
                   <Icons.LucideIcon
                     name={iconMap[event.type as keyof typeof iconMap]}
-                    className="h-[1.2em] w-[1.2em]"
+                    className="h-[1.2em] w-[1.2em] shrink-0"
                   />
                 </Badge>
               </a>
