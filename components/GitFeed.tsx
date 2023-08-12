@@ -50,7 +50,10 @@ export default async function GitFeed({ username }: { username: string }) {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Badge variant={"outline"} className="flex-inline items-center gap-4">
+                <Badge
+                  variant={"outline"}
+                  className="flex-inline items-center gap-4 hover:bg-muted"
+                >
                   <Avatar className="h-6 w-6">
                     <AvatarFallback className="uppercase">
                       {event.repo.name.split("/")?.at(-1)?.slice(0, 2) || "UNK"}
